@@ -1,3 +1,6 @@
+import 'hammerjs';
+import { MaterialModule } from '@angular/material';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +20,7 @@ const appRoutes: Routes = [
     LoginComponent
   ],
   imports: [
+    MaterialModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule,

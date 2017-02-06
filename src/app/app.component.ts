@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  private userIsLogged: boolean;
+
+  constructor(private router: Router) {
+    this.userIsLogged = false;
+  }
+
+  ngOnInit() {
+    if(!this.userIsLogged) {
+      // redirect to login page
+      this.router.navigate(['/login']);
+    } else {
+      // redirect to first page
+    }
+  }
 }

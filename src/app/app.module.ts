@@ -9,6 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { AlertModule } from 'ng2-bootstrap';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent }
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AlertModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

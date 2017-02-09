@@ -6,10 +6,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './components/login/login.component';
 import { AlertModule } from 'ng2-bootstrap';
-import { HomeComponent } from './home/home.component';
-import { PostosComponent } from './postos/postos.component';
+import { HomeComponent } from './components/home/home.component';
+import { PostosComponent } from './components/postos/postos.component';
 
 const appRoutes: Routes = [{
       path: 'home',

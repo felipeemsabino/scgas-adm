@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule, ModuleWithProviders } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login',
@@ -9,14 +10,14 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 export class LoginComponent implements OnInit {
   registerCredentials = {user: 'admin', pass: 'admin'};
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
   entrar () {
     if(this.registerCredentials.user === 'admin' && this.registerCredentials.user === 'admin')
     {
-      alert('entrar');
+      this.router.navigate(['/home']);
     }
   }
 }

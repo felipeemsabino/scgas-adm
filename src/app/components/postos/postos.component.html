@@ -3,7 +3,7 @@
   <div class="panel-heading clearfix">Postos
 
     <div class="btn-group pull-right">
-        <a href="#" class="btn btn-default btn-sm">Novo</a>
+        <a href="javascript:;" class="btn btn-default btn-sm">Novo</a>
       </div>
   </div>
   <div class="panel-body" style="height: calc(100vh - 200px);overflow-y:auto;" >
@@ -11,187 +11,25 @@
     <table class="table table-bordered" >
       <thead>
         <tr>
+          <th class="text-center">#</th>
           <th class="text-center">Nome</th>
           <th class="text-center">Endereço</th>
-          <th class="text-center">Coordenada X</th>
-          <th class="text-center">Coordenada Y</th>
+          <th class="text-center">Coord X</th>
+          <th class="text-center">Coord Y</th>
           <th class="text-center">Bandeira</th>
           <th class="text-center">Excluir</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Posto 1</td>
-          <td>Rua tal, número tal</td>
-          <td>-13.545415</td>
-          <td>-45.597132</td>
+        <tr *ngFor='let posto of postos; let currentElementIndex = index;' style="cursor:pointer;"
+          >
+          <td>{{currentElementIndex}}</td>
+          <td>{{posto.nome}}</td>
+          <td>{{posto.endereco}}</td>
+          <td>{{posto.coordenadaX}}</td>
+          <td>{{posto.coordenadaY}}</td>
           <td>
-            <select class="form-control input-sm" id="sel1">
-              <option>BR</option>
-              <option>Sem Bandeira</option>
-              <option>Shell</option>
-              <option>RDP</option>
-            </select>
-          </td>
-          <td><button type="button" class="btn btn-danger">X</button></td>
-        </tr>
-        <tr>
-          <td>Posto 2</td>
-          <td>Rua tal 2, número tal</td>
-          <td>-12.147539</td>
-          <td>-43.572314</td>
-          <td>
-            <select class="form-control input-sm" id="sel1">
-              <option>BR</option>
-              <option>Sem Bandeira</option>
-              <option>Shell</option>
-              <option>RDP</option>
-            </select>
-          </td>
-          <td><button type="button" class="btn btn-danger">X</button></td>
-        </tr>
-        <tr>
-          <td>Posto 2</td>
-          <td>Rua tal 2, número tal</td>
-          <td>-12.147539</td>
-          <td>-43.572314</td>
-          <td>
-            <select class="form-control input-sm" id="sel1">
-              <option>BR</option>
-              <option>Sem Bandeira</option>
-              <option>Shell</option>
-              <option>RDP</option>
-            </select>
-          </td>
-          <td><button type="button" class="btn btn-danger">X</button></td>
-        </tr>
-        <tr>
-          <td>Posto 2</td>
-          <td>Rua tal 2, número tal</td>
-          <td>-12.147539</td>
-          <td>-43.572314</td>
-          <td>
-            <select class="form-control input-sm" id="sel1">
-              <option>BR</option>
-              <option>Sem Bandeira</option>
-              <option>Shell</option>
-              <option>RDP</option>
-            </select>
-          </td>
-          <td><button type="button" class="btn btn-danger">X</button></td>
-        </tr>
-        <tr>
-          <td>Posto 3</td>
-          <td>Rua tal 2, número tal</td>
-          <td>-12.147539</td>
-          <td>-43.572314</td>
-          <td>
-            <select class="form-control input-sm" id="sel1">
-              <option>BR</option>
-              <option>Sem Bandeira</option>
-              <option>Shell</option>
-              <option>RDP</option>
-            </select>
-          </td>
-          <td><button type="button" class="btn btn-danger">X</button></td>
-        </tr>
-        <tr>
-          <td>Posto 4</td>
-          <td>Rua tal 2, número tal</td>
-          <td>-12.147539</td>
-          <td>-43.572314</td>
-          <td>
-            <select class="form-control input-sm" id="sel1">
-              <option>BR</option>
-              <option>Sem Bandeira</option>
-              <option>Shell</option>
-              <option>RDP</option>
-            </select>
-          </td>
-          <td><button type="button" class="btn btn-danger">X</button></td>
-        </tr>
-        <tr>
-          <td>Posto 5</td>
-          <td>Rua tal 2, número tal</td>
-          <td>-12.147539</td>
-          <td>-43.572314</td>
-          <td>
-            <select class="form-control input-sm" id="sel1">
-              <option>BR</option>
-              <option>Sem Bandeira</option>
-              <option>Shell</option>
-              <option>RDP</option>
-            </select>
-          </td>
-          <td><button type="button" class="btn btn-danger">X</button></td>
-        </tr>
-        <tr>
-          <td>Posto 6</td>
-          <td>Rua tal 2, número tal</td>
-          <td>-12.147539</td>
-          <td>-43.572314</td>
-          <td>
-            <select class="form-control input-sm" id="sel1">
-              <option>BR</option>
-              <option>Sem Bandeira</option>
-              <option>Shell</option>
-              <option>RDP</option>
-            </select>
-          </td>
-          <td><button type="button" class="btn btn-danger">X</button></td>
-        </tr>
-        <tr>
-          <td>Posto 7</td>
-          <td>Rua tal 2, número tal</td>
-          <td>-12.147539</td>
-          <td>-43.572314</td>
-          <td>
-            <select class="form-control input-sm" id="sel1">
-              <option>BR</option>
-              <option>Sem Bandeira</option>
-              <option>Shell</option>
-              <option>RDP</option>
-            </select>
-          </td>
-          <td><button type="button" class="btn btn-danger">X</button></td>
-        </tr>
-        <tr>
-          <td>Posto 8</td>
-          <td>Rua tal 2, número tal</td>
-          <td>-12.147539</td>
-          <td>-43.572314</td>
-          <td>
-            <select class="form-control input-sm" id="sel1">
-              <option>BR</option>
-              <option>Sem Bandeira</option>
-              <option>Shell</option>
-              <option>RDP</option>
-            </select>
-          </td>
-          <td><button type="button" class="btn btn-danger">X</button></td>
-        </tr>
-        <tr>
-          <td>Posto 9</td>
-          <td>Rua tal 2, número tal</td>
-          <td>-12.147539</td>
-          <td>-43.572314</td>
-          <td>
-            <select class="form-control input-sm" id="sel1">
-              <option>BR</option>
-              <option>Sem Bandeira</option>
-              <option>Shell</option>
-              <option>RDP</option>
-            </select>
-          </td>
-          <td><button type="button" class="btn btn-danger">X</button></td>
-        </tr>
-        <tr>
-          <td>Posto 10</td>
-          <td>Rua tal 2, número tal</td>
-          <td>-12.147539</td>
-          <td>-43.572314</td>
-          <td>
-            <select class="form-control input-sm" id="sel1">
+            <select class="form-control input-sm">
               <option>BR</option>
               <option>Sem Bandeira</option>
               <option>Shell</option>
@@ -203,21 +41,17 @@
       </tbody>
     </table>
     <nav>
-      <ul class="pagination">
+      <ul class="pagination" max-size="10">
         <li>
-          <a href="#" aria-label="Previous">
+          <a href="javascript:;" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
           </a>
         </li>
-        <li><a href="javascript:;" (click)="calculaRange(1)" >1</a></li>
-        <li><a href="javascript:;" (click)="calculaRange(2)">2</a></li>
-        <li><a href="javascript:;" (click)="calculaRange(3)">3</a></li>
-        <li><a href="javascript:;" (click)="calculaRange(4)">4</a></li>
-        <li><a href="javascript:;" (click)="calculaRange(5)">5</a></li>
-        <li><a href="javascript:;" (click)="calculaRange(6)">6</a></li>
-        <li><a href="javascript:;" (click)="calculaRange(7)">7</a></li>
+        <li *ngFor='let item of createRange(); let currentElementIndex = index;'>
+          <a href="javascript:;" (click)="calculaRange(item)">
+          {{currentElementIndex+1}}</a></li>
         <li>
-          <a href="#" aria-label="Next">
+          <a href="javascript:;" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>

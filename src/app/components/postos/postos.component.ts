@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { URLSearchParams, QueryEncoder } from '@angular/http';
 import { Http, Response } from '@angular/http';
+import { PostoService } from '../services/posto.service';
+import { Posto } from '../classes/posto';
+declare var $:any;
 
 @Component({
   selector: 'app-postos',
   templateUrl: './postos.component.html',
-  styleUrls: ['./postos.component.css']
+  styleUrls: ['./postos.component.css'],
+  providers: [PostoService]
 })
 
 export class PostosComponent implements OnInit {
@@ -14,32 +18,75 @@ export class PostosComponent implements OnInit {
   nomePosto: string;
   bandeiraPosto: string;
   enderecoPosto: string;
-  inicio: number = 1;
-  fim: number = 10;
+  inicio: number = 0;
   intervalo: number = 10;
   paginaAtual: number = 1;
+  postos: Posto[];
 
-  constructor(private http: Http) {
+  // para retorno do serviço
+  retornoQtdRestante: number = 0;
+  contadorPaginas: number = 0;
+
+  // entidade para edição ou criação
+  entidadePosto: Posto;
+
+  constructor(private http: Http, private postoService: PostoService) {
     this.params = new URLSearchParams();
-    this.setUrlParams();
   }
 
   ngOnInit() {
-    //this.getPostos();
+    console.log('ngOnInit');
+    this.getPostos();
+  }
+
+  getPostos() {
+    this.setUrlParams();
+    // Get all postos
+    this.postoService.getPostos(this.params)
+                      .subscribe(
+                          result => {
+                            this.retornoQtdRestante = Number((<any>result.pop()).split(":")[1].replace("}",""));
+                            this.postos = result;
+                          }, //Bind to view
+                          err => {
+                            console.log(err);
+                          });
   }
 
   setUrlParams() {
     this.params.set('inicio', ""+this.inicio);
-    this.params.set('fim', ""+this.fim);
+    this.params.set('fim', ""+this.intervalo);
     this.params.set('nomePosto', this.nomePosto);
     this.params.set('bandeiraPosto', this.bandeiraPosto);
     this.params.set('enderecoPosto', this.enderecoPosto);
   }
 
-  getPostos() {
+
+  calculaRange(proximaPagina: number) {
+    console.log('Pagina atual -> ' + this.paginaAtual + ' Proxima pagina -> '+proximaPagina);
+
+    this.inicio = (proximaPagina-1)*this.intervalo;
+    this.paginaAtual = proximaPagina;
+    this.getPostos();
+  }
+
+  createRange(){
+    var items: number[] = [];
+    if(this.retornoQtdRestante === undefined)
+      return items;
+
+    var paginas: number = Number((this.retornoQtdRestante/10).toFixed(0)); //10 items por pagina
+
+    for(var i = 1; i <= paginas; i++){
+       items.push(i);
+    }
+    return items;
+  }
+
+  /*getPostos() {
     this.setUrlParams();
     return this.http.get(
-      'http://ec2-52-67-135-39.sa-east-1.compute.amazonaws.com:8080/postoservice/listaTodosPostos/', {
+      '', {
       //search: this.params
     }).subscribe(
       (response) => this.onGetForecastResult(response),
@@ -56,13 +103,5 @@ export class PostosComponent implements OnInit {
   }
   private onGetForecastComplete() {
     console.log('onGetForecastComplete');
-  }
-  calculaRange(proximaPagina: number) {
-    console.log('Pagina atual -> ' + this.paginaAtual + ' Proxima pagina -> '+proximaPagina);
-
-    this.inicio = (proximaPagina-1)*this.intervalo+1;
-    this.fim = this.inicio-1+this.intervalo;
-    this.paginaAtual = proximaPagina;
-    //this.getPostos();
-  }
+  }*/
 }

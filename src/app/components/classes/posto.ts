@@ -6,10 +6,10 @@ export class Posto {
     public coordenadaX: string,
     public coordenadaY: string,
     public numImovel: number,
-    public ativo: boolean,
+    public ativo: string,
+    public bandeiraPosto?: number,
     public id?: number,
     public dataCadastro?: Date,
-    public bandeiraPosto?: string,
-    public listaPrecos?: number[]
+    public listaPrecosGNV?: any
   ){}
 }

@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AlertModule } from 'ng2-bootstrap';
 import { HomeComponent } from './components/home/home.component';
 import { PostosComponent } from './components/postos/postos.component';
+import { PostoFormComponent } from './components/postos/posto-form/posto-form.component';
 
 const appRoutes: Routes = [{
       path: 'home',
@@ -27,7 +28,8 @@ const appRoutes: Routes = [{
     AppComponent,
     LoginComponent,
     HomeComponent,
-    PostosComponent
+    PostosComponent,
+    PostoFormComponent
   ],
   imports: [
     MaterialModule.forRoot(),

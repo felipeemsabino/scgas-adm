@@ -1,0 +1,65 @@
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Edição</h4>
+      </div>
+      <form (ngSubmit)="onSubmit()" #postoForm="ngForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" required
+              [(ngModel)]="parametros.entidadePosto.nome">
+          </div>
+          <div class="form-group">
+            <label for="endereco">Endereço</label>
+            <input type="text" class="form-control" id="endereco" name="endereco" required
+              [(ngModel)]="parametros.entidadePosto.endereco">
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-6 col-md-6">
+                <label for="coordenadaX">Coordenada X</label>
+                <input type="text" class="form-control" id="coordenadaX" name="coordenadaX" required
+                  [(ngModel)]="parametros.entidadePosto.coordenadaX">
+              </div>
+
+              <div class="col-sm-6 col-md-6">
+                <label for="coordenadaY">Coordenada Y</label>
+                <input type="text" class="form-control" id="coordenadaY" name="coordenadaY" required
+                  [(ngModel)]="parametros.entidadePosto.coordenadaY">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-4 col-md-4">
+                <label for="numImovel">Bandeira</label>
+                <select class="form-control" [(ngModel)]="parametros.entidadePosto.bandeiraPosto" name="bandeiraPosto">
+                  <option *ngFor="let bandeira of parametros.bandeiras"
+                    [ngValue]="bandeira.id" >{{bandeira.nome}}</option>
+                </select>
+              </div>
+              <div class="col-sm-4 col-md-4">
+                <label for="numImovel">Número do imóvel</label>
+                <input type="text" class="form-control" id="numImovel" name="numImovel" required
+                  [(ngModel)]="parametros.entidadePosto.numImovel">
+              </div>
+              <div class="col-sm-4 col-md-4">
+                <label for="ativo">Ativo</label><br>
+                <input type="checkbox" [checked]="parametros.entidadePosto.ativo === 'S'"
+                  id="ativo" name="ativo"
+                  [(ngModel)]="ativo">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-success" [disabled]="!postoForm.form.valid">Salvar</button>
+        </div>
+      </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

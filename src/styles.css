@@ -1,2 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+
+.top-buffer { margin-top:20px; }
+.vertical-button-align { vertical-align:middle; }

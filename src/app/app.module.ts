@@ -11,11 +11,13 @@ import { AlertModule } from 'ng2-bootstrap';
 import { HomeComponent } from './components/home/home.component';
 import { PostosComponent } from './components/postos/postos.component';
 import { PostoFormComponent } from './components/postos/posto-form/posto-form.component';
+import { NoticiasComponent } from './components/noticias/noticias/noticias.component';
 
 const appRoutes: Routes = [{
       path: 'home',
       children: [
         { path: 'postos', component: PostosComponent },
+        { path: 'noticias', component: NoticiasComponent },
         /*{ path: 'temp2', component: TempComponent2 },*/
       ],
       component: HomeComponent
@@ -29,7 +31,8 @@ const appRoutes: Routes = [{
     LoginComponent,
     HomeComponent,
     PostosComponent,
-    PostoFormComponent
+    PostoFormComponent,
+    NoticiasComponent
   ],
   imports: [
     MaterialModule.forRoot(),

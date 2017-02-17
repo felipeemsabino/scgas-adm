@@ -11,7 +11,8 @@ import { AlertModule } from 'ng2-bootstrap';
 import { HomeComponent } from './components/home/home.component';
 import { PostosComponent } from './components/postos/postos.component';
 import { PostoFormComponent } from './components/postos/posto-form/posto-form.component';
-import { NoticiasComponent } from './components/noticias/noticias/noticias.component';
+import { NoticiasComponent } from './components/noticias/noticias.component';
+import { NoticiaFormComponent } from './components/noticias/noticia-form/noticia-form.component';
 
 const appRoutes: Routes = [{
       path: 'home',
@@ -32,7 +33,8 @@ const appRoutes: Routes = [{
     HomeComponent,
     PostosComponent,
     PostoFormComponent,
-    NoticiasComponent
+    NoticiasComponent,
+    NoticiaFormComponent
   ],
   imports: [
     MaterialModule.forRoot(),

@@ -130,7 +130,7 @@ export class PostosComponent implements OnInit {
       posto.id, posto.dataCadastro , posto.listaPrecosGNV);
       console.log('editando posto -> '+JSON.stringify(posto));
     } else { // se novo, então cria o atributo entidadePosto vazio para enviar a tela de edição
-      this.parametroFormulario["entidadePosto"] = new Posto("", "", "", "", 0, "S", 0);
+      this.parametroFormulario["entidadePosto"] = new Posto("", "", "", "", 0, "S");
       console.log('criando novo posto');
     }
   }

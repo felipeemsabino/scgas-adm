@@ -134,4 +134,12 @@ export class PostosComponent implements OnInit {
       console.log('criando novo posto');
     }
   }
+
+  /*
+  * Quando o usuário clica em pesquisar é necessário buscar os resultados
+  * a partir da primeira página.
+  */
+  getPostosComFiltro () {
+    this.calculaRange(1);
+  }
 }

@@ -4,6 +4,8 @@ import { Bandeira } from '../../classes/bandeira';
 import { PostoService } from '../../services/posto.service';
 import { URLSearchParams } from '@angular/http';
 
+declare var $:any; // JQUERY
+
 @Component({
   selector: 'app-posto-form',
   templateUrl: './posto-form.component.html',
@@ -16,13 +18,9 @@ export class PostoFormComponent implements OnInit {
 
   ativo: boolean; // apenas para controle do checkbox
 
-  constructor(private postoService: PostoService) {
-    console.log('constructor');
-  }
+  constructor(private postoService: PostoService) {}
 
-  ngOnInit() {
-    console.log('abriu');
-  }
+  ngOnInit() {}
 
   setBandeiraPosto(id: number) {
     let bandeiras: Bandeira[] = this.parametros["bandeiras"];
@@ -37,10 +35,7 @@ export class PostoFormComponent implements OnInit {
     this.parametros["entidadePosto"].bandeiraPosto = this.setBandeiraPosto(idBandeira);
 
     // Controle necessário pois a propriedade ativo não é boolean, mas sim um 'S' ou 'N'
-    this.parametros["entidadePosto"].ativo = (this.ativo == true ? 'S' : 'N');
-    
-    //this.parametros["entidadePosto"].ativo = this.parametros["entidadePosto"].ativo == true ? 'S' :
-    //this.parametros["entidadePosto"].ativo == false ? 'N' : this.parametros["entidadePosto"].ativo;
+    this.parametros["entidadePosto"].ativo = ($('input[name="ativo"]:checked').length > 0 ? 'S' : 'N');
   }
   onSubmit() {
     this.setParametros();
@@ -49,14 +44,14 @@ export class PostoFormComponent implements OnInit {
     let params: URLSearchParams = new URLSearchParams();
     params = this.parametros["entidadePosto"];
     // Salva posto
-  /*  this.postoService.salvarPosto(params)
+    this.postoService.salvarPosto(params)
                       .subscribe(
                           result => {
                             console.log('Salvou com sucesso!');
                           }, //Bind to view
                           err => {
                             console.log(err);
-                          });*/
+                          });
   }
 
 }

@@ -1,3 +1,66 @@
-<p>
-  noticias works!
-</p>
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading clearfix">Notícias
+
+    <div class="btn-group pull-right">
+        <a href="javascript:;" class="btn btn-default btn-sm"
+        (click)="criaObjetoNoticia(undefined)" data-toggle="modal" data-target="#myModal">Novo</a>
+      </div>
+  </div>
+  <div class="panel-body" style="height: calc(100vh - 200px);overflow-y:auto;" >
+    <!-- Filtros  -->
+    <div class="row">
+      <div class="col-sm-3 col-md-3">
+        <label for="nome">Data cadastro</label>
+        <input class="form-control" type="date" id="dataCadastro" name="dataCadastro" required
+          [(ngModel)]="dataCadastro">
+      </div>
+      <div class="col-sm-2 col-md-2 ">
+        <label for="buscar">Pesquisar</label><br>
+        <button type="button" class="btn btn-info" (click)="getPostosComFiltro()" id="buscar" name="buscar">
+          <span class="glyphicon glyphicon-search"></span>
+        </button>
+      </div>
+    </div>
+    <div class="row top-buffer">
+      <!-- Table -->
+      <table class="table table-bordered table-hover" >
+        <thead>
+          <tr>
+            <th class="text-center">#</th>
+            <th class="text-center">Título</th>
+            <th class="text-center">Notícia</th>
+            <th class="text-center">Data cadastro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let noticia of noticias; let currentElementIndex = index;' style="cursor:pointer;"
+            (click)="criaObjetoNoticia(noticia)" data-toggle="modal" data-target="#myModal">
+            <td>{{currentElementIndex}}</td>
+            <td>{{noticia.titulo | slice:0:20}}</td>
+            <td>{{noticia.textoNoticia | slice:0:50}}</td>
+            <td>{{noticia.dataCadastro}}</td>
+          </tr>
+        </tbody>
+      </table>
+    <div>
+    <nav>
+      <ul class="pagination" max-size="10">
+        <li>
+          <a href="javascript:;" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li *ngFor='let item of createRange(); let currentElementIndex = index;'>
+          <a href="javascript:;" (click)="calculaRange(item)">
+          {{currentElementIndex+1}}</a></li>
+        <li>
+          <a href="javascript:;" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<app-noticia-form [parametros]="parametroFormulario"></app-noticia-form>

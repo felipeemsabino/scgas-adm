@@ -1,9 +1,10 @@
-export class Noticias {
+export class Noticia {
 
   constructor(
-    public id: number,
     public titulo: string,
     public textoNoticia: string,
+    public notifica?: string,
+    public id?: number,
     public dataCadastro?: Date
   ){}
 }

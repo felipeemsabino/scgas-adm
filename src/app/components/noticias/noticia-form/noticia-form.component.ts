@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Noticia } from '../../classes/noticia';
+import { NoticiaService } from '../../services/noticia.service';
+import { URLSearchParams } from '@angular/http';
+
+declare var $:any; // JQUERY
 
 @Component({
   selector: 'app-noticia-form',
@@ -7,9 +12,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoticiaFormComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  parametros: JSON;
 
-  ngOnInit() {
+  notifica: boolean; // apenas para controle do checkbox
+
+  constructor(private noticiaService: NoticiaService) {}
+
+  ngOnInit() {}
+
+  setParametros() {
+    // Controle necessário pois a propriedade ativo não é boolean, mas sim um 'S' ou 'N'
+    this.parametros["entidadeNoticia"].notifica = ($('input[name="notifica"]:checked').length > 0 ? 'S' : 'N');
+  }
+
+  onSubmit() {
+    this.setParametros();
+
+    console.log('will submit2 -> ' + JSON.stringify(this.parametros["entidadeNoticia"]));
+    let params: URLSearchParams = new URLSearchParams();
+    params = this.parametros["entidadeNoticia"];
+    // Salva posto
+    this.noticiaService.salvarNoticia(params)
+                      .subscribe(
+                          result => {
+                            console.log('Salvou com sucesso!');
+                          }, //Bind to view
+                          err => {
+                            console.log(err);
+                          });
   }
 
 }

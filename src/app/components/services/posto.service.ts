@@ -17,7 +17,7 @@ export class PostoService {
 
   getPostos(params: URLSearchParams): Observable<Posto []> {
 
-     return this.http.get(globals.baseUrl+'listaTodosPostos/',{ search: params })
+     return this.http.get(globals.baseUrl+'postoservice/listaTodosPostos/',{ search: params })
                      .map((res:Response) => res.json())
                      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 
@@ -27,7 +27,7 @@ export class PostoService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-     return this.http.post(globals.baseUrl+'cadastrarPosto/', params , options)
+     return this.http.post(globals.baseUrl+'postoservice/cadastrarPosto/', params , options)
                      .map((res:Response) => res.json())
                      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 
@@ -35,7 +35,7 @@ export class PostoService {
 
   getBandeiras(): Observable<Bandeira []> {
 
-     return this.http.get(globals.baseUrl+'listaBandeiras/')
+     return this.http.get(globals.baseUrl+'postoservice/listaBandeiras/')
                      .map((res:Response) => res.json())
                      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 

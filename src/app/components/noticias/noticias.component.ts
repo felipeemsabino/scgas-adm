@@ -21,7 +21,7 @@ export class NoticiasComponent implements OnInit {
   inicio: number = 0;     //paginação
   intervalo: number = 10; //paginação
   paginaAtual: number = 1;//paginação
-  retornoQtdRestante: number = 0; // quantos postos existem para serem mostrados em pesquisa
+  retornoQtdRestante: number = 0; // quantas noticias existem para serem mostrados em pesquisa
 
   // Array de notícias que será apresentado no grid
   noticias: Noticia[];
@@ -29,7 +29,7 @@ export class NoticiasComponent implements OnInit {
   // contem a notícia que está sendo editada/criada
   parametroFormulario = {};
 
-  constructor(private http: Http, private postoService: NoticiaService) {
+  constructor(private http: Http, private noticiaService: NoticiaService) {
     this.params = new URLSearchParams();
     this.parametroFormulario["entidadeNoticia"] = new Noticia("", "", "S");
   }
@@ -39,12 +39,12 @@ export class NoticiasComponent implements OnInit {
   }
 
   /*
-  * Recupera os postos para serem mostrados no grid
+  * Recupera as notícias para serem mostradas no grid
   */
   getNoticias() {
     this.setUrlParams();
-    // Get all postos
-    this.postoService.getNoticias(this.params)
+    // Get all notícias
+    this.noticiaService.getNoticias(this.params)
                       .subscribe(
                           result => {
                             this.retornoQtdRestante = Number((<any>result.pop()).split(":")[1].replace("}",""));
@@ -56,7 +56,7 @@ export class NoticiasComponent implements OnInit {
   }
 
   /*
-  * Monta os parametros que serão utilizados para buscar os postos
+  * Monta os parametros que serão utilizados para buscar as notícias
   */
   setUrlParams() {
     this.params = new URLSearchParams();
@@ -103,10 +103,18 @@ export class NoticiasComponent implements OnInit {
       if(noticia !== undefined) {
         this.parametroFormulario["entidadeNoticia"] = new Noticia(noticia.titulo,
           noticia.textoNoticia, noticia.notifica, noticia.id, noticia.dataCadastro);
-        console.log('editando posto -> '+JSON.stringify(noticia));
+        console.log('editando notícia -> '+JSON.stringify(noticia));
       } else { // se novo, então cria o atributo entidadeNoticia vazia para enviar a tela de edição
         this.parametroFormulario["entidadeNoticia"] = new Noticia("", "", "S");
         console.log('criando nova noticia');
       }
+    }
+
+    /*
+    * Quando o usuário clica em pesquisar é necessário buscar os resultados
+    * a partir da primeira página.
+    */
+    getNoticiasComFiltro () {
+      this.calculaRange(1);
     }
 }

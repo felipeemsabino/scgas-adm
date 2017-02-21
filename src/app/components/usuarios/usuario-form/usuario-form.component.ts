@@ -28,6 +28,7 @@ export class UsuarioFormComponent implements OnInit {
   }
 
   onSubmit() {
+    $('#myModal').modal('hide'); // fecha modal
     this.setParametros();
 
     console.log('will submit2 -> ' + JSON.stringify(this.parametros["entidadeUsuario"]));
@@ -37,9 +38,10 @@ export class UsuarioFormComponent implements OnInit {
     this.usuarioService.salvarUsuario(params)
                       .subscribe(
                           result => {
-                            console.log('Salvou com sucesso!');
+                            alert('Dados gravados com sucesso!');
                           }, //Bind to view
                           err => {
+                            alert('Ocorreram erros ao gravar os dados! Tente novamente!');
                             console.log(err);
                           });
   }

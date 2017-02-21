@@ -38,6 +38,7 @@ export class PostoFormComponent implements OnInit {
     this.parametros["entidadePosto"].ativo = ($('input[name="ativo"]:checked').length > 0 ? 'S' : 'N');
   }
   onSubmit() {
+    $('#myModal').modal('hide'); // fecha modal
     this.setParametros();
 
     console.log('will submit2 -> ' + JSON.stringify(this.parametros["entidadePosto"]));
@@ -47,9 +48,11 @@ export class PostoFormComponent implements OnInit {
     this.postoService.salvarPosto(params)
                       .subscribe(
                           result => {
+                            alert('Dados gravados com sucesso!');
                             console.log('Salvou com sucesso!');
                           }, //Bind to view
                           err => {
+                            alert('Ocorreram erros ao gravar os dados! Tente novamente!');
                             console.log(err);
                           });
   }

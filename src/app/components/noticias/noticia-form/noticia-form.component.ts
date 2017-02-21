@@ -27,6 +27,7 @@ export class NoticiaFormComponent implements OnInit {
   }
 
   onSubmit() {
+    $('#myModal').modal('hide'); // fecha modal
     this.setParametros();
 
     console.log('will submit2 -> ' + JSON.stringify(this.parametros["entidadeNoticia"]));
@@ -36,9 +37,11 @@ export class NoticiaFormComponent implements OnInit {
     this.noticiaService.salvarNoticia(params)
                       .subscribe(
                           result => {
+                            alert('Dados gravados com sucesso!');
                             console.log('Salvou com sucesso!');
                           }, //Bind to view
                           err => {
+                            alert('Ocorreram erros ao gravar os dados! Tente novamente!');
                             console.log(err);
                           });
   }

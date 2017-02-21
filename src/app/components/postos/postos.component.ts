@@ -64,7 +64,7 @@ export class PostosComponent implements OnInit {
   * Recupera os postos para serem mostrados no grid
   */
   getPostos() {
-    document.getElementById("loader").style.display = "block";
+    //document.getElementById("loader").style.display = "block";
     this.setUrlParams();
     // Get all postos
     this.postoService.getPostos(this.params)
@@ -72,14 +72,9 @@ export class PostosComponent implements OnInit {
                           result => {
                             this.retornoQtdRestante = Number((<any>result.pop()).split(":")[1].replace("}",""));
                             this.postos = result;
-                            setTimeout(function () {
-                              document.getElementById("loader").style.display = "none";
-                            }, 500);
                           }, //Bind to view
                           err => {
                             console.log(err);
-
-                            document.getElementById("loader").style.display = "none";
                           });
   }
 

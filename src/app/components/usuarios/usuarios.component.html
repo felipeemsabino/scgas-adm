@@ -1,3 +1,70 @@
-<p>
-  usuarios works!
-</p>
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading clearfix">Usuários</div>
+  <div class="panel-body" style="height: calc(100vh - 200px);overflow-y:auto;" >
+    <!-- Filtros  -->
+    <div class="row">
+      <div class="col-sm-3 col-md-3">
+        <label for="nome">Nome</label>
+        <input class="form-control" type="text" id="nome" name="nome" required
+          [(ngModel)]="nome">
+      </div>
+      <div class="col-sm-6 col-md-6">
+        <label for="nome">Email</label>
+        <input class="form-control" type="email" id="email" name="email" required
+          [(ngModel)]="email">
+      </div>
+      <div class="col-sm-2 col-md-2 ">
+        <label for="buscar">Pesquisar</label><br>
+        <button type="button" class="btn btn-info" (click)="getUsuariosComFiltro()" id="buscar" name="buscar">
+          <span class="glyphicon glyphicon-search"></span>
+        </button>
+      </div>
+    </div>
+    <div class="row top-buffer">
+      <!-- Table -->
+      <table class="table table-bordered table-hover" >
+        <thead>
+          <tr>
+            <th class="text-center">#</th>
+            <th class="text-center">Nome</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Data cadastro</th>
+            <th class="text-center">Ativo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let usuario of usuarios; let currentElementIndex = index;' style="cursor:pointer;"
+            (click)="criaObjetoUsuario(usuario)" data-toggle="modal" data-target="#myModal">
+            <td>{{currentElementIndex}}</td>
+            <td>{{usuario.nome}}</td>
+            <td>{{usuario.email}}</td>
+            <td>{{usuario.dataCadastro}}</td>
+            <td>
+              <input type="checkbox" [checked]="usuario.ativo === 'S'"
+                id="ativo" name="ativo">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    <div>
+    <nav>
+      <ul class="pagination" max-size="10">
+        <li>
+          <a href="javascript:;" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li *ngFor='let item of createRange(); let currentElementIndex = index;'>
+          <a href="javascript:;" (click)="calculaRange(item)">
+          {{currentElementIndex+1}}</a></li>
+        <li>
+          <a href="javascript:;" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<app-usuario-form [parametros]="parametroFormulario"></app-usuario-form>

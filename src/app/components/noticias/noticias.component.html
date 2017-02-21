@@ -5,23 +5,10 @@
     <div class="btn-group pull-right">
         <a href="javascript:;" class="btn btn-default btn-sm"
         (click)="criaObjetoNoticia(undefined)" data-toggle="modal" data-target="#myModal">Novo</a>
-      </div>
+    </div>
   </div>
   <div class="panel-body" style="height: calc(100vh - 200px);overflow-y:auto;" >
-    <!-- Filtros  -->
-    <div class="row">
-      <div class="col-sm-3 col-md-3">
-        <label for="nome">Data cadastro</label>
-        <input class="form-control" type="date" id="dataCadastro" name="dataCadastro" required
-          [(ngModel)]="dataCadastro">
-      </div>
-      <div class="col-sm-2 col-md-2 ">
-        <label for="buscar">Pesquisar</label><br>
-        <button type="button" class="btn btn-info" (click)="getNoticiasComFiltro()" id="buscar" name="buscar">
-          <span class="glyphicon glyphicon-search"></span>
-        </button>
-      </div>
-    </div>
+
     <div class="row top-buffer">
       <!-- Table -->
       <table class="table table-bordered table-hover" >

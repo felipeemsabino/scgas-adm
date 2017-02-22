@@ -7,6 +7,7 @@ export class Posto {
     public coordenadaY: string,
     public numImovel: number,
     public ativo: string,
+    public precoGNV?: number,
     public bandeiraPosto?: number,
     public id?: number,
     public dataCadastro?: Date,

@@ -1,56 +1,52 @@
-<div class="page-header">
-    <h1>  SCGAS - Sistema Administrativo </h1>
-    <p>Sistema de controle para SCGAS-APP</p>
-</div>
-
-<!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
-<div class="row">
-  <div class="col-sm-2 col-md-4"></div>
-  <div class="col-xs-12 col-sm-8 col-md-4" style="margin-left:auto;margin-right:auto;display:block;text-align:center;">
-    <div class="panel panel-primary">
-    <div class="panel-heading">Login</div>
-    <div class="panel-body">
-
-    <!-- Login Form -->
-    <form role="form">
-
-    <!-- Username Field -->
-        <div class="row">
-            <div class="form-group col-xs-12">
-              <input class="form-control" id="username" [(ngModel)]="registerCredentials.user" type="text" name="username" placeholder="Usuário" required/>
-            </div>
-        </div>
-
-        <!-- Content Field -->
-        <div class="row">
-            <div class="form-group col-xs-12">
-                <input class="form-control" id="password" [(ngModel)]="registerCredentials.pass" type="password" name="password" placeholder="Senha" required/>
-            </div>
-        </div>
-
-        <!-- Login Button -->
-        <div class="row">
-            <div class="form-group col-xs-12">
-                <button class="btn btn-primary" type="submit" (click)="entrar()">Entrar</button>
-            </div>
-        </div>
-
-    </form>
+<div class="container-fluid">
+  <div class="page-header scgas-header">
+    <div class="row">
+      <div class="col-md-3 header-item">
+        <img src="./assets/imgs/img_header.gif" >
+      </div>
+      <div class="col-md-6 header-item">
+        <h1 align="center">SCGAS - Sistema Administrativo</h1>
+        <p align="center">Sistema de controle para SCGAS-APP</p>
+      </div>
+      <div class="col-md-3">
+      </div>
+    </div>
   </div>
-  <div class="col-sm-2 col-md-4"></div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 middle-panel">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Login</div>
+        <div class="panel-body">
+
+        <!-- Login Form -->
+        <form role="form">
+
+        <!-- Username Field -->
+            <div class="row">
+                <div class="form-group col-md-12">
+                  <input class="form-control" id="username" [(ngModel)]="registerCredentials.user" type="text" name="username" placeholder="Usuário" required/>
+                </div>
+            </div>
+
+            <!-- Content Field -->
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <input class="form-control" id="password" [(ngModel)]="registerCredentials.pass" type="password" name="password" placeholder="Senha" required/>
+                </div>
+            </div>
+
+            <!-- Login Button -->
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <button class="btn btn-primary" type="submit" (click)="entrar()">Entrar</button>
+                </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
 </div>
-</div>
-</div>
-  <!--
-  <md-list>
-    <h3 md-line>Entrar</h3>
-    <h4 md-line>Utilize seu usuário e senha para acessar o sistema</h4>
-      <md-input-container>
-        <input md-input placeholder="Usuário" id="user" type="text">
-      </md-input-container>
-      <md-input-container>
-        <input md-input placeholder="Senha" id="pass" type="password">
-      </md-input-container>
-      <button md-raised-button style="background-color:#673AB7;color:white">Entrar</button>
-  </md-list>
-  -->

@@ -37,7 +37,7 @@ export class PostosComponent implements OnInit {
 
   constructor(private http: Http, private postoService: PostoService) {
     this.params = new URLSearchParams();
-    this.parametroFormulario["entidadePosto"] = new Posto("", "", "", "", 0, "S", 0);
+    this.parametroFormulario["entidadePosto"] = new Posto("", "", "", "", 0, "S", 0, 0);
   }
 
   ngOnInit() {
@@ -127,11 +127,11 @@ export class PostosComponent implements OnInit {
     // se edição, então preenche o atributo entidadePosto para enviar a tela de edição
     if(posto !== undefined) {
       this.parametroFormulario["entidadePosto"] = new Posto(posto.nome, posto.endereco,
-      posto.coordenadaX, posto.coordenadaY, posto.numImovel, posto.ativo, posto.bandeiraPosto.id,
+      posto.coordenadaX, posto.coordenadaY, posto.numImovel, posto.ativo, posto.precoGNV, posto.bandeiraPosto.id,
       posto.id, posto.dataCadastro , posto.listaPrecosGNV);
       console.log('editando posto -> '+JSON.stringify(posto));
     } else { // se novo, então cria o atributo entidadePosto vazio para enviar a tela de edição
-      this.parametroFormulario["entidadePosto"] = new Posto("", "", "", "", 0, "S");
+      this.parametroFormulario["entidadePosto"] = new Posto("", "", "", "", 0, "S", 0);
       console.log('criando novo posto');
     }
   }

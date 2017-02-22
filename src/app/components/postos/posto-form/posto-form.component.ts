@@ -50,6 +50,7 @@ export class PostoFormComponent implements OnInit {
                           result => {
                             alert('Dados gravados com sucesso!');
                             console.log('Salvou com sucesso!');
+                            $('#recarregaGrid').click();
                           }, //Bind to view
                           err => {
                             alert('Ocorreram erros ao gravar os dados! Tente novamente!');

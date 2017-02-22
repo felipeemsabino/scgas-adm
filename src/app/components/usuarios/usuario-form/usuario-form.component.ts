@@ -39,6 +39,7 @@ export class UsuarioFormComponent implements OnInit {
                       .subscribe(
                           result => {
                             alert('Dados gravados com sucesso!');
+                            $('#recarregaGrid').click();
                           }, //Bind to view
                           err => {
                             alert('Ocorreram erros ao gravar os dados! Tente novamente!');

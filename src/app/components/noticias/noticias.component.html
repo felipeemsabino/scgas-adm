@@ -8,7 +8,11 @@
     </div>
   </div>
   <div class="panel-body">
-
+    <!-- Filtros  -->
+    <div class="row" style="display:none;"><!-- recarregar o grid após alterar registro  -->
+      <button type="button" class="btn btn-info" (click)="this.getNoticias()" id="recarregaGrid" name="recarregaGrid">
+    </button>
+    </div>
     <div class="row top-buffer">
       <!-- Table -->
       <table class="table table-bordered table-hover" >

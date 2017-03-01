@@ -42,6 +42,18 @@ export class PostoService {
 
   }
 
+  deletaPosto(posto: any){
+    this.loading(true);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+     return this.http.post(globals.baseUrl+'postoservice/deletaPosto/', posto , options)
+                     .map((res:Response) => this.extractData(res))
+                     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+
+  }
+
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);

@@ -143,4 +143,28 @@ export class PostosComponent implements OnInit {
   getPostosComFiltro () {
     this.calculaRange(1);
   }
+
+  /* Método Excluir Registro por ID.
+  *
+  */
+  deletePosto(posto : any) {
+
+    if(confirm("Deseja excluir este registro?") == true){
+      this.postoService.deletaPosto(posto)
+                        .subscribe(
+                            result => {
+                              alert('Posto excluido com sucesso!');
+                              console.log('Posto excluido com sucesso!');
+                              $('#recarregaGrid').click();
+                            }, //Bind to view
+                            err => {
+                              alert('Ocorreram erros ao excluir posto! Tente novamente!');
+                              console.log(err);
+                            });
+    }
+
+
+  }
+
+
 }

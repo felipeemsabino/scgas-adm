@@ -50,17 +50,23 @@
             <th class="text-center">Coord X</th>
             <th class="text-center">Coord Y</th>
             <th class="text-center">Bandeira</th>
+            <th class="text-center">Excluir</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor='let posto of postos; let currentElementIndex = index;' style="cursor:pointer;"
-            (click)="criaObjetoPosto(posto)" data-toggle="modal" data-target="#myModal">
-            <td>{{currentElementIndex}}</td>
-            <td>{{posto.nome | slice:0:20}}</td>
-            <td>{{posto.endereco | slice:0:35}}</td>
-            <td>{{posto.coordenadaX}}</td>
-            <td>{{posto.coordenadaY}}</td>
-            <td>{{posto.bandeiraPosto.nome}}</td>
+          >
+
+            <td   (click)="criaObjetoPosto(posto)" data-toggle="modal" data-target="#myModal">{{currentElementIndex}}</td>
+            <td   (click)="criaObjetoPosto(posto)" data-toggle="modal" data-target="#myModal">{{posto.nome | slice:0:20}}</td>
+            <td   (click)="criaObjetoPosto(posto)" data-toggle="modal" data-target="#myModal">{{posto.endereco | slice:0:35}}</td>
+            <td   (click)="criaObjetoPosto(posto)" data-toggle="modal" data-target="#myModal">{{posto.coordenadaX}}</td>
+            <td   (click)="criaObjetoPosto(posto)" data-toggle="modal" data-target="#myModal">{{posto.coordenadaY}}</td>
+            <td   (click)="criaObjetoPosto(posto)" data-toggle="modal" data-target="#myModal">{{posto.bandeiraPosto.nome}}</td>
+  
+            <td><button type="button" class="btn btn-info" (click)="this.deletePosto(posto)" id="deletePosto" name="deletePosto">
+            X
+          </button></td>
           </tr>
         </tbody>
       </table>

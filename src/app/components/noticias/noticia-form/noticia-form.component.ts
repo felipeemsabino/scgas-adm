@@ -27,8 +27,14 @@ export class NoticiaFormComponent implements OnInit {
   }
 
   onSubmit() {
-    $('#myModal').modal('hide'); // fecha modal
     this.setParametros();
+
+    if (this.parametros["entidadeNoticia"].notifica == "S") {
+      if(confirm("Ao salvar esse registro todos os usuários receberão uma notificação com essa notícia! Deseja prosseguir?") == false)
+        return;
+    }
+
+    $('#myModal').modal('hide'); // fecha modal
 
     console.log('will submit2 -> ' + JSON.stringify(this.parametros["entidadeNoticia"]));
     let params: URLSearchParams = new URLSearchParams();

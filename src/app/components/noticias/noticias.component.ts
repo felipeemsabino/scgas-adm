@@ -105,7 +105,7 @@ export class NoticiasComponent implements OnInit {
           noticia.textoNoticia, noticia.notifica, noticia.id, noticia.dataCadastro);
         console.log('editando notícia -> '+JSON.stringify(noticia));
       } else { // se novo, então cria o atributo entidadeNoticia vazia para enviar a tela de edição
-        this.parametroFormulario["entidadeNoticia"] = new Noticia("", "", "S");
+        this.parametroFormulario["entidadeNoticia"] = new Noticia("", "", "N");
         console.log('criando nova noticia');
       }
     }

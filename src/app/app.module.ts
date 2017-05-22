@@ -15,6 +15,7 @@ import { NoticiasComponent } from './components/noticias/noticias.component';
 import { NoticiaFormComponent } from './components/noticias/noticia-form/noticia-form.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { UsuarioFormComponent } from './components/usuarios/usuario-form/usuario-form.component';
+import { ParametrosGeraisComponent } from './components/parametros-gerais/parametros-gerais.component';
 
 const appRoutes: Routes = [{
       path: 'home',
@@ -22,6 +23,7 @@ const appRoutes: Routes = [{
         { path: 'postos', component: PostosComponent },
         { path: 'noticias', component: NoticiasComponent },
         { path: 'usuarios', component: UsuariosComponent },
+        { path: 'parametros-gerais', component: ParametrosGeraisComponent },
         /*{ path: 'temp2', component: TempComponent2 },*/
       ],
       component: HomeComponent
@@ -39,7 +41,8 @@ const appRoutes: Routes = [{
     NoticiasComponent,
     NoticiaFormComponent,
     UsuariosComponent,
-    UsuarioFormComponent
+    UsuarioFormComponent,
+    ParametrosGeraisComponent
   ],
   imports: [
     MaterialModule.forRoot(),

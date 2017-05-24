@@ -27,6 +27,16 @@ export class UsuarioFormComponent implements OnInit {
     this.parametros["entidadeUsuario"].ativo = ($('input[name="ativo"]:checked').length > 0 ? 'S' : 'N');
   }
 
+  excluirUsuario() {
+    var r = confirm("Tem certeza que deseja cancelar esse registro?");
+    if (r == true) {
+      this.parametros["entidadeUsuario"].excluido = 'S';
+      this.onSubmit();
+    } else {
+        return;
+    }
+  }
+
   onSubmit() {
     $('#myModal').modal('hide'); // fecha modal
     this.setParametros();

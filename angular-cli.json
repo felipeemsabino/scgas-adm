@@ -1,6 +1,6 @@
 {
   "project": {
-    "version": "1.0.0-beta.28.3",
+    "version": "1.0.0",
     "name": "scgas-adm"
   },
   "apps": [
@@ -26,10 +26,10 @@
         "../node_modules/jquery/dist/jquery.min.js",
         "../node_modules/bootstrap/dist/js/bootstrap.min.js"
       ],
+      "environmentSource": "environments/environment.ts",
       "environments": {
-        "source": "environments/environment.ts",
-        "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
+      "dev": "environments/environment.ts",
+      "prod": "environments/environment.prod.ts"
       }
     }
   ],
